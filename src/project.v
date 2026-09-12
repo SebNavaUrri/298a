@@ -27,7 +27,7 @@ module tt_um_example (
   wire _unused = &{ena, clk, rst_n, 1'b0};
 
     always @(posedge clk or negedge rst_n) begin
-        if !(rst_n) begin
+        if (!rst_n) begin
           counter <= 8'b0;
         end else if (counter == 8'hff) begin
           counter <= 8'b0;
