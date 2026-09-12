@@ -24,4 +24,15 @@ module tt_um_example (
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, clk, rst_n, 1'b0};
 
+  reg [7:0] counter;
+
+  always @(posedge clk or posedge rst) begin
+      if (rst) begin
+          counter <= 8'b0;
+      end else if (counter == h'ff) begin
+          counter <= 8'b0;
+      end
+      counter <= counter += 1;
+      end
+
 endmodule
