@@ -32,7 +32,7 @@ module tt_um_example (
         end else if (counter == 8'hff) begin
           counter <= 8'b0;
       end else begin
-      counter <= counter += 1;
+      counter <= counter += 1'b1;
       end
     end
 
