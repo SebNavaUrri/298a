@@ -28,11 +28,11 @@ async def test_project(dut):
     # Counter should start at 0 after reset
     assert dut.uo_out.value == 0
     
-await ClockCycles(dut.clk, 1)
-assert dut.uo_out.value == 0
+    await ClockCycles(dut.clk, 1)
+    assert dut.uo_out.value == 0
 
-await ClockCycles(dut.clk, 1)
-assert dut.uo_out.value == 1
+    await ClockCycles(dut.clk, 1)
+    assert dut.uo_out.value == 1
 
     await ClockCycles(dut.clk, 1)
     assert dut.uo_out.value == 2
