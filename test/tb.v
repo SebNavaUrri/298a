@@ -16,7 +16,7 @@ module tb ();
   // Wire up the inputs and outputs:
     input  wire [7:0] load_bits,    // Dedicated inputs
     input wire  load_en,   // Dedicated outputs
-    input wire out,
+    input wire out_en,    // 
     input  wire en,      // always 1 when the design is powered, so you can ignore it
     input  wire clk,      // clock
     input  wire rst,        // reset
