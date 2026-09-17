@@ -25,7 +25,7 @@ async def test_project(dut):
 
     dut._log.info("Test project behavior")
 
-    # Counter should start at 0 after reset
+    # counter should start at 0 after reset
     assert dut.uo_out.value == 0
     
     await ClockCycles(dut.clk, 1)
@@ -45,3 +45,7 @@ async def test_project(dut):
 
     await ClockCycles(dut.clk, 1)
     assert dut.uo_out.value == 0
+
+    duit.ui_in.value = 15
+    await ClockCycles(dut.clk, 1)
+    assert dut.uo_out.value == 15
