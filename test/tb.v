@@ -16,6 +16,8 @@ module tb ();
   reg        clk;
   reg        rst_n;
   wire [7:0] uo_out;
+  wire [7:0] uio_out;
+  wire [7:0] uio_oe;
 
 `ifdef GL_TEST
   wire VPWR = 1'b1;
@@ -28,12 +30,13 @@ module tb ();
       .VGND(VGND),
 `endif
       .ui_in  (ui_in),
-      .load_en(load_en),
-      .out_en (out_en),
-      .en     (en),
+      .uo_out (uo_out),
+      .uio_in ({6'b0, out_en, load_en}),
+      .uio_out(uio_out),
+      .uio_oe (uio_oe),
+      .ena    (en),
       .clk    (clk),
-      .rst_n  (rst_n),
-      .uo_out (uo_out)
+      .rst_n  (rst_n)
   );
 
 endmodule
