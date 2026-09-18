@@ -14,13 +14,13 @@ module tb ();
   end
 
   // Wire up the inputs and outputs:
-    input  wire [7:0] load_bits,    // Dedicated inputs
-    input wire  load_en,   // Dedicated outputs
-    input wire out_en,    // enabling the output
-    input  wire en,      // always 1 when the design is powered, so you can ignore it
-    input  wire clk,      // clock
-    input  wire rst,        // reset
-    output wire [7:0] out
+   wire [7:0] load_bits,    // Dedicated inputs
+   wire  load_en,   // Dedicated outputs
+   wire out_en,    // enabling the output
+   wire en,      // always 1 when the design is powered, so you can ignore it
+   wire clk,      // clock
+   wire rst,        // reset
+   wire [7:0] out
 `ifdef GL_TEST
   wire VPWR = 1'b1;
   wire VGND = 1'b0;
