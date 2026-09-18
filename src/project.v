@@ -17,7 +17,6 @@ module tt_um_example (
  
   reg [7:0] counter;
   reg [7:0] outpuh;
-  assign out = 8'b00000000;
 
     always @(posedge clk or posedge rst or posedge load_en) begin
         if (rst) begin
