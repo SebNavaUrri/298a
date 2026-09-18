@@ -19,6 +19,7 @@ async def test_project(dut):
     dut.rst_n.value = 0
     await ClockCycles(dut.clk, 10)
     dut.rst_n.value = 1
+    await ClockCycles(dut.clk, 1)   # let the reset-release write actually land
 
     dut._log.info("Test project behavior")
 
@@ -44,7 +45,8 @@ async def test_project(dut):
 
     dut.ui_in.value = 15
     dut.load_en.value = 1
-    await ClockCycles(dut.clk, 1)
+    await ClockCycles(dut.clk, 1)   # settle: load_en write lands
+    await ClockCycles(dut.clk, 1)   # counter <= ui_in (15)
     dut.load_en.value = 0
-    await ClockCycles(dut.clk, 1)
+    await ClockCycles(dut.clk, 1)   # outpuh <= counter (15)
     assert dut.uo_out.value == 15
